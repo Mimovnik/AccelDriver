@@ -44,9 +44,19 @@
     devShells.${system}.default = pkgs.mkShell {
       inputsFrom = [self.packages.${system}.default];
 
+      nativeBuildInputs = [
+        pkgs.just
+      ];
+
       shellHook = ''
         export KERNELDIR=${kernel.dev}/lib/modules/${kernel.modDirVersion}/build
+        echo
         echo "Kernel source directory set to $KERNELDIR"
+
+        echo
+        echo "Welcome to the dev shell!"
+        echo "Use 'just <recipe>' to run Justfile recipes (commands). Use 'just -l' to show the below menu."
+        just -l
       '';
     };
   };
