@@ -20,7 +20,7 @@
   in {
     # Package for building the kernel module
     packages.${system}.default = pkgs.stdenv.mkDerivation {
-      name = "hello-module";
+      name = "AccelDriver";
       src = ./.;
       buildInputs = with pkgs; [
         kernel.dev
@@ -36,7 +36,7 @@
       '';
       installPhase = ''
         mkdir -p $out/lib/modules/${kernel.modDirVersion}/extra
-        cp hello.ko $out/lib/modules/${kernel.modDirVersion}/extra/
+        cp driver.ko $out/lib/modules/${kernel.modDirVersion}/extra/
       '';
     };
 

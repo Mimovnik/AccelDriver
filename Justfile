@@ -2,10 +2,10 @@ build:
   nix build
 
 ins:
-  sudo insmod result/lib/modules/$(uname -r)/extra/hello.ko
+  sudo insmod result/lib/modules/$(uname -r)/extra/driver.ko
 
 rm: 
-  sudo rmmod result/lib/modules/$(uname -r)/extra/hello.ko
+  sudo rmmod result/lib/modules/$(uname -r)/extra/driver.ko
 
 test: 
   echo

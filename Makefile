@@ -1,4 +1,4 @@
-obj-m += hello.o
+obj-m += driver.o
 
 all:
 	make -C $(KERNELDIR) M=$(PWD) modules
